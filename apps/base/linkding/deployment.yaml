@@ -3,6 +3,10 @@ kind: Deployment
 metadata:
   name: linkding
 spec:
+  volumes:
+    - name: linkding-storage
+      persistentVolumeClaim:
+        claimName: linkding-data-pvc
   replicas: 1
   selector:
     matchLabels:
@@ -18,3 +22,6 @@ spec:
           ports:
             - containerPort: 9090
 
+          volumeMounts:
+            - mountPath: "/mnt/data"
+              name: linkding-storage
