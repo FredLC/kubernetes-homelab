@@ -3,10 +3,6 @@ kind: Deployment
 metadata:
   name: linkding
 spec:
-  volumes:
-    - name: linkding-storage
-      persistentVolumeClaim:
-        claimName: linkding-data-pvc
   replicas: 1
   selector:
     matchLabels:
@@ -25,3 +21,8 @@ spec:
           volumeMounts:
             - mountPath: "/mnt/data"
               name: linkding-storage
+
+      volumes:
+        - name: linkding-storage
+          persistentVolumeClaim:
+            claimName: linkding-data-pvc
