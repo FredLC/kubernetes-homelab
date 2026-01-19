@@ -1,0 +1,22 @@
+apiVersion: v1
+data:
+    LD_SUPERUSER_NAME: ENC[AES256_GCM,data:GApRrQkiCEc=,iv:mZkbfQemQPgufPFfD6URIIOEf01JUziizhBco3rX+6Y=,tag:PCq8LFjOBJIhupmpEVeZQA==,type:str]
+    LD_SUPERUSER_PASSWORD: ENC[AES256_GCM,data:amFuIzq3Iww=,iv:Pbr/3ERjyNCeE9h9D8Ap1D1nRUV18y1nmnh0FrykV44=,tag:/EZoy0sLdSPIe9gYdRVRkA==,type:str]
+kind: Secret
+metadata:
+    name: linkding-superuser
+sops:
+    age:
+        - recipient: age154p5ddddkvhftah6vv2y4kdpgkhaukgjnkrfdn8rgkugugec5chqqc87ey
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBRdzBhcURRbnl2VjRIN2lk
+            Vm51dGd2MXkycEoxQUk1S0x1MUp2QXpVVVd3ClZRTW82RHBYTUJqTU9PMVVUNUQz
+            UHVzVVRLMnhBZUNIa0NOZlV3Z3JXUlUKLS0tIHlvWjRBZmpocWZQNnBNM0RFeWtH
+            T3MxNSt2bFJSRVB0bHBxZWVqTXFnZkkKXY8gxdYjpkanrmmGYx857lkvWQ4hnBqL
+            xazVZVd2kiz/XatuUgq5AlXmnbRyxwoplZl3y0oqEM7/dFU2eSiVTg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-01-19T20:41:20Z"
+    mac: ENC[AES256_GCM,data:nU7ITr3wO26ou4gLeKTN1zybbViV17oqCWv072vVAA1/Jakc1fHDTXoJi+FNjHhHNbcnk3oHmVIoQSXp0aW0djy5q1JlVOwG6BWmWDSANBp0aA6k/RXh+eD6HJWD5cGn4rYwMWlZlZtWdC06dM6zRnavhcGikcR2Q+ircd0bFEo=,iv:U8yJg2nYNLL7/Tp5sOTqskKskxFH/QPM0hoI2VGjQE8=,tag:xbJhyWKGUUuNmbl2tP4fFA==,type:str]
+    encrypted_regex: ^(data|stringData)$
+    version: 3.11.0
