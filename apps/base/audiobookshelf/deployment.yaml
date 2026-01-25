@@ -21,9 +21,6 @@ spec:
       containers:
         - name: audiobookshelf
           image: ghcr.io/advplyr/audiobookshelf:latest
-          # envFrom:
-          #   - secretRef:
-          #       name: audiobookshelf-superuser
           ports:
             - containerPort: 3005
 
