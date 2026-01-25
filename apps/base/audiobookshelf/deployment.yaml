@@ -1,40 +1,40 @@
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: linkding
-# spec:
-#   replicas: 1
-#   selector:
-#     matchLabels:
-#       app: linkding
-#   template:
-#     metadata:
-#       labels:
-#         app: linkding
-#     spec:
-#       securityContext:
-#         runAsNonRoot: true
-#         runAsUser: 33
-#         runAsGroup: 33
-#         fsGroup: 33
-#
-#       containers:
-#         - name: linkding
-#           image: sissbruecker/linkding:1.45.0
-#           envFrom:
-#             - secretRef:
-#                 name: linkding-superuser
-#           ports:
-#             - containerPort: 9090
-#
-#           securityContext:
-#             allowPrivilegeEscalation: false
-#
-#           volumeMounts:
-#             - mountPath: "/etc/linkding/data"
-#               name: linkding-storage
-#
-#       volumes:
-#         - name: linkding-storage
-#           persistentVolumeClaim:
-#             claimName: linkding-data-pvc
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: audiobookshelf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: audiobookshelf
+  template:
+    metadata:
+      labels:
+        app: audiobookshelf
+    spec:
+      # securityContext:
+      #   runAsNonRoot: true
+      #   runAsUser: 33
+      #   runAsGroup: 33
+      #   fsGroup: 33
+
+      containers:
+        - name: audiobookshelf
+          image: ghcr.io/advplyr/audiobookshelf:latest
+          # envFrom:
+          #   - secretRef:
+          #       name: audiobookshelf-superuser
+          ports:
+            - containerPort: 3005
+
+          securityContext:
+            allowPrivilegeEscalation: false
+
+      #     volumeMounts:
+      #       - mountPath: "/etc/audiobookshelf/data"
+      #         name: audiobookshelf-storage
+      #
+      # volumes:
+      #   - name: audiobookshelf-storage
+      #     persistentVolumeClaim:
+      #       claimName: audiobookshelf-data-pvc
