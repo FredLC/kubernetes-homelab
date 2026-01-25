@@ -24,8 +24,8 @@ spec:
           ports:
             - containerPort: 80
 
-          securityContext:
-            allowPrivilegeEscalation: false
+          # securityContext:
+          #   allowPrivilegeEscalation: false
 
       #     volumeMounts:
       #       - mountPath: "/etc/audiobookshelf/data"
