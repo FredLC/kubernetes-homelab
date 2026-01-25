@@ -6,14 +6,14 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: audiobookshelf.home.arpa
+    - host: audiobookshelf.fredericlefebvrecote.com/
       http:
         paths:
           - backend:
               service:
                 name: audiobookshelf
                 port:
-                  number: 3005
+                  number: 80
             path: /
             pathType: Prefix
 
