@@ -19,6 +19,32 @@ spec:
         fsGroup: 1000
         fsGroupChangePolicy: "OnRootMismatch"
 
+      initContainers:
+        - name: init-permissions
+          image: busybox:1.36
+          securityContext:
+            runAsUser: 0
+          command:
+            - sh
+            - -c
+            - |
+              set -eu
+              for d in /audiobooks /podcasts /config /metadata; do
+                echo "Fixing permissions on $d"
+                mkdir -p "$d"
+                chown -R 1000:1000 "$d"
+                chmod -R u+rwX,g+rwX "$d"
+              done
+          volumeMounts:
+            - name: audiobooks
+              mountPath: /audiobooks
+            - name: podcasts
+              mountPath: /podcasts
+            - name: config
+              mountPath: /config
+            - name: metadata
+              mountPath: /metadata
+
       containers:
         - name: audiobookshelf
           image: ghcr.io/advplyr/audiobookshelf:latest
@@ -31,30 +57,30 @@ spec:
 
           volumeMounts:
             - mountPath: "/audiobooks"
-              name: audiobooks-storage
+              name: audiobooks
             
             - mountPath: "/podcasts"
-              name: podcasts-storage
+              name: podcasts
 
             - mountPath: "/config"
-              name: config-storage
+              name: config
 
             - mountPath: "/metadata"
-              name: metadata-storage
+              name: metadata
 
       volumes:
-        - name: audiobooks-storage
+        - name: audiobooks
           persistentVolumeClaim:
             claimName: audiobooks-pvc
 
-        - name: podcasts-storage
+        - name: podcasts
           persistentVolumeClaim:
             claimName: podcasts-pvc
 
-        - name: config-storage
+        - name: config
           persistentVolumeClaim:
             claimName: config-pvc
 
-        - name: metadata-storage
+        - name: metadata
           persistentVolumeClaim:
             claimName: metadata-pvc
