@@ -81,7 +81,7 @@ data:
       service: http://linkding:9090
 
     - hostname: audiobookshelf.fredericlefebvrecote.com
-    service: http://audiobookshelf:3005
+      service: http://audiobookshelf:3005
 
 
     # This rule sends traffic to the built-in hello-world HTTP server. This can help debug connectivity
