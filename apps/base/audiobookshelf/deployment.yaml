@@ -28,7 +28,7 @@ spec:
           #   allowPrivilegeEscalation: false
 
           volumeMounts:
-            - mountPath: "/usr/share/audiobookshelf/audiobooks"
+            - mountPath: "/audiobooks"
               name: audiobooks-storage
 
       volumes:
