@@ -12,11 +12,11 @@ spec:
       labels:
         app: audiobookshelf
     spec:
-      # securityContext:
-      #   runAsNonRoot: true
-      #   runAsUser: 33
-      #   runAsGroup: 33
-      #   fsGroup: 33
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
 
       containers:
         - name: audiobookshelf
@@ -24,8 +24,8 @@ spec:
           ports:
             - containerPort: 80
 
-          # securityContext:
-          #   allowPrivilegeEscalation: false
+          securityContext:
+            allowPrivilegeEscalation: false
 
           volumeMounts:
             - mountPath: "/audiobooks"
