@@ -53,30 +53,30 @@ spec:
             - containerPort: 80
 
           volumeMounts:
-            # - mountPath: "/audiobooks"
-            #   name: audiobooks
-            #
-            # - mountPath: "/podcasts"
-            #   name: podcasts
-            #
-            # - mountPath: "/config"
-            #   name: config
+            - mountPath: "/audiobooks"
+              name: audiobooks
+
+            - mountPath: "/podcasts"
+              name: podcasts
+
+            - mountPath: "/config"
+              name: config
 
             - mountPath: "/metadata"
               name: metadata
 
       volumes:
-        # - name: audiobooks
-        #   persistentVolumeClaim:
-        #     claimName: audiobooks-pvc
-        #
-        # - name: podcasts
-        #   persistentVolumeClaim:
-        #     claimName: podcasts-pvc
-        #
-        # - name: config
-        #   persistentVolumeClaim:
-        #     claimName: config-pvc
+        - name: audiobooks
+          persistentVolumeClaim:
+            claimName: audiobooks-pvc
+
+        - name: podcasts
+          persistentVolumeClaim:
+            claimName: podcasts-pvc
+
+        - name: config
+          persistentVolumeClaim:
+            claimName: config-pvc
 
         - name: metadata
           persistentVolumeClaim:
