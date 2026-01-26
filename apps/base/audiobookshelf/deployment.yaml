@@ -30,8 +30,29 @@ spec:
           volumeMounts:
             - mountPath: "/audiobooks"
               name: audiobooks-storage
+            
+            - mountPath: "/podcasts"
+              name: podcasts-storage
+
+            - mountPath: "/config"
+              name: config-storage
+
+            - mountPath: "/metadata"
+              name: metadata-storage
 
       volumes:
         - name: audiobooks-storage
           persistentVolumeClaim:
             claimName: audiobooks-pvc
+
+        - name: podcasts-storage
+          persistentVolumeClaim:
+            claimName: podcasts-pvc
+
+        - name: config-storage
+          persistentVolumeClaim:
+            claimName: config-pvc
+
+        - name: metadata-storage
+          persistentVolumeClaim:
+            claimName: metadata-pvc
